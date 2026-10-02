@@ -5,6 +5,7 @@ import com.jad.view.IView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Controller implements IController {
     private final IModel model;
@@ -19,5 +20,16 @@ public class Controller implements IController {
 
     @Override
     public void proceed() {
+        for(;;){
+            this.view.displayScreen();
+            this.model.moveAll();
+            if(new Random().nextBoolean()){
+                if(new Random().nextBoolean()){
+                    this.model.turnRight();
+                } else{
+                    this.model.turnLeft();
+                }
+            }
+        }
     }
 }
